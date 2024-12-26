@@ -1,51 +1,70 @@
 import React from 'react'
+import { getCurrentWindow } from '@tauri-apps/api/window';
+
 
 function Header(
     { activeTab, setActiveTab }
 ) {
-  return (
-    <div id="header" className="bg-[#1E1E1E]">
+
+    React.useEffect(() => {
+        const appWindow = getCurrentWindow();
+
+        document.getElementById('header')?.addEventListener('mousedown', (e) => {
+            if (e.buttons === 1) {
+                // Primary (left) button
+                e.detail === 2
+                    ? appWindow.toggleMaximize() // Maximize on double click
+                    : appWindow.startDragging(); // Else start dragging
+            }
+        });
+        return () => {
+            document.getElementById('header')?.removeEventListener('mousedown', () => { });
+        };
+    }, []);
+
+    return (
+        <div id="header" className="bg-[#1E1E1E]">
             <div className="flex items-center gap-4">
-              <h1 className="pl-6 pt-4 text-2xl font-bold tracking-wide">
-                MINECRAFT: 馬扁 Neko 私服器啟動器
-              </h1>
+                <h1 className="pl-6 pt-4 text-2xl font-bold tracking-wide">
+                    MINECRAFT: 馬扁 Neko 私服器啟動器
+                </h1>
             </div>
 
             {/* 標籤頁 */}
             <div className="px-6 mt-4">
-              <div className="flex space-x-8 border-b border-gray-700">
-                <button
-                  onClick={() => setActiveTab('play')}
-                  className={`px-4 py-2 -mb-px font-medium ${activeTab === 'play'
-                    ? 'border-b-2 border-white'
-                    : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
-                    }`}
-                >
-                  開始遊戲
-                </button>
-                <button
-                  onClick={() => setActiveTab('settings')}
-                  className={`px-4 py-2 -mb-px font-medium ${activeTab === 'settings'
-                    ? 'border-b-2 border-white'
-                    : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
-                    }`}
-                >
-                  設定
-                </button>
-                <button
-                  onClick={() => setActiveTab('changelog')}
-                  className={`px-4 py-2 -mb-px font-medium ${activeTab === 'changelog'
-                    ? 'border-b-2 border-white'
-                    : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
-                    }`}
-                >
-                  更新日誌
-                </button>
-              </div>
+                <div className="flex space-x-8 border-b border-gray-700">
+                    <button
+                        onClick={() => setActiveTab('play')}
+                        className={`px-4 py-2 -mb-px font-medium ${activeTab === 'play'
+                            ? 'border-b-2 border-white'
+                            : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
+                            }`}
+                    >
+                        開始遊戲
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('settings')}
+                        className={`px-4 py-2 -mb-px font-medium ${activeTab === 'settings'
+                            ? 'border-b-2 border-white'
+                            : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
+                            }`}
+                    >
+                        設定
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('changelog')}
+                        className={`px-4 py-2 -mb-px font-medium ${activeTab === 'changelog'
+                            ? 'border-b-2 border-white'
+                            : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
+                            }`}
+                    >
+                        更新日誌
+                    </button>
+                </div>
             </div>
-          </div>
+        </div>
 
-  )
+    )
 }
 
 export default Header
