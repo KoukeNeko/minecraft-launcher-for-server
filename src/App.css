@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  user-select: none;
+  cursor: default;
+  overscroll-behavior-y: none; /* Disable pull-to-refresh and overscroll glow effect on Safai */
+}
