@@ -5,5 +5,5 @@
 :root {
   user-select: none;
   cursor: default;
-  overscroll-behavior-y: none; /* Disable pull-to-refresh and overscroll glow effect on Safai */
+  overscroll-behavior: none; /* Disable pull-to-refresh and overscroll glow effect on Safai */
 }
