@@ -174,7 +174,7 @@ const MinecraftLauncher = () => {
                   }}
                   navigation={true}
                   modules={[Autoplay, Pagination, Navigation]}
-                  className="h-full"
+                  className="h-[108%] w-full"
                 >
                   {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
