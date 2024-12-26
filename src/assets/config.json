@@ -1,0 +1,9 @@
+{
+  "gameDirectory": "C:\\Users\\Username\\AppData\\Roaming\\.minecraft",
+  "javaPath": "C:\\Program Files\\Java\\jre1.8.0_301\\bin\\java.exe",
+  "minMemory": 2048,
+  "maxMemory": 4096,
+  "jvmArgs": "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions",
+  "keepLauncherOpen": false,
+  "fullscreen": false
+}
