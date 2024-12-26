@@ -10,12 +10,7 @@ function Header(
         const appWindow = getCurrentWindow();
 
         document.getElementById('header')?.addEventListener('mousedown', (e) => {
-            if (e.buttons === 1) {
-                // Primary (left) button
-                e.detail === 2
-                    ? appWindow.toggleMaximize() // Maximize on double click
-                    : appWindow.startDragging(); // Else start dragging
-            }
+            appWindow.startDragging();
         });
         return () => {
             document.getElementById('header')?.removeEventListener('mousedown', () => { });
