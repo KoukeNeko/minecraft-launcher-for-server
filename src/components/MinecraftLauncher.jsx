@@ -36,7 +36,7 @@ const MinecraftLauncher = () => {
     <div className="h-screen bg-gray-900 text-white relative">
       <div className="flex h-full">
         {/* 左側邊欄 */}
-        <div className={`w-64 bg-gray-800 p-4 ${navigator.platform.includes('Mac') ? 'pt-10' : ''} space-y-4`}>
+        <div className={`w-64 bg-[#1b1b1b] p-4 ${navigator.platform.includes('Mac') ? 'pt-10' : ''} space-y-4 shadow-lg relative z-10`}>
           {/* 玩家資訊 */}
           <div className="flex items-center space-x-2 p-2 bg-gray-700 rounded">
             <div className="w-8 h-8 rounded bg-gray-600"></div>
@@ -331,7 +331,7 @@ const MinecraftLauncher = () => {
           </div>
 
           {/* 底部啟動區域 */}
-          <div className="mt-auto p-4 bg-gray-800 border-t border-gray-700">
+          <div className="mt-auto p-4 bg-[#1E1E1E] border-t border-gray-700">
             <div className="flex items-center justify-between max-w-6xl mx-auto">
               <div className="flex items-center space-x-2">
                 <RefreshCw className="w-5 h-5 text-green-500 animate-spin" />

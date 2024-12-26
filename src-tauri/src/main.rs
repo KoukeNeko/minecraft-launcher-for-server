@@ -23,8 +23,8 @@ fn main() {
 				main_window.make_transparent().unwrap();
 
 				// Set window level
-				// NSWindowLevel: https://developer.apple.com/documentation/appkit/nswindowlevel
-				main_window.set_window_level(25).unwrap();
+                // NSWindowLevel: https://developer.apple.com/documentation/appkit/nswindowlevel
+                main_window.set_window_level(0).unwrap();
 			}
 
 			Ok(())
