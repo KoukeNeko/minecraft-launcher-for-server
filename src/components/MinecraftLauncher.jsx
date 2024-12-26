@@ -161,6 +161,7 @@ const MinecraftLauncher = () => {
             {activeTab === 'play' && (
               <div className="-mx-6 -mt-6 h-full">
                 <Swiper
+                  
                   spaceBetween={0}
                   centeredSlides={true}
                   autoplay={{
@@ -170,6 +171,7 @@ const MinecraftLauncher = () => {
                   pagination={{
                     clickable: true,
                   }}
+                  loop={true}
                   navigation={true}
                   modules={[Autoplay, Pagination, Navigation]}
                   className="h-[115%] w-full"

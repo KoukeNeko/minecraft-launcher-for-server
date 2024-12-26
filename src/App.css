@@ -43,3 +43,36 @@
     transform: translateX(50%);
   }
 }
+
+/* Swiper Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important;
+  color: white;
+}
+
+.swiper-button-next {
+  right: 20px !important;
+}
+
+.swiper-button-prev {
+  left: 20px !important;
+}
+
+/* Swiper Pagination Dots */
+.swiper-pagination-bullet {
+  opacity: 0.5;
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: white !important; /* bg-gray-800 */
+}
