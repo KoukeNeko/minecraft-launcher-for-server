@@ -19,7 +19,7 @@ import 'swiper/css/navigation';
 
 const MinecraftLauncher = () => {
   const [activeTab, setActiveTab] = useState('play');
-  const [updating, setUpdating] = useState(true);
+  const [updating, setUpdating] = useState(false);
   const [username, setUsername] = useState('');
   const [showLoginModal, setShowLoginModal] = useState(false);
 
