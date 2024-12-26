@@ -5,7 +5,7 @@ function Footer(
     { updating }
 ) {
   return (
-    <div id="footer" className="mt-auto p-4 bg-[#1E1E1E] border-t border-gray-700">
+    <div id="footer" className="mt-auto p-4 bg-[#1E1E1E] border-t border-zinc-700">
             <div className="flex items-center justify-between max-w-6xl mx-auto">
               <div className="flex items-center space-x-2">
                 {updating ?
@@ -15,9 +15,9 @@ function Footer(
                 }
 
                 <div className="text-sm">
-                  <span className="text-gray-400">目前版本：</span>
+                  <span className="text-zinc-400">目前版本：</span>
                   <span className="text-white">Fabric-1.21.1</span>
-                  <span className="text-gray-400 ml-2">- 檢查更新中...</span>
+                  <span className="text-zinc-400 ml-2">- 檢查更新中...</span>
                 </div>
               </div>
               {updating

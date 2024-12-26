@@ -26,13 +26,13 @@ function Header(
             </div>
 
             {/* 標籤頁 */}
-            <div className="px-6 mt-4 border-b border-gray-700">
+            <div className="px-6 mt-4 border-b border-zinc-700">
                 <div className="flex space-x-8 ">
                     <button
                         onClick={() => setActiveTab('play')}
                         className={`px-4 py-2 -mb-px font-medium ${activeTab === 'play'
                             ? 'border-b-2 border-white'
-                            : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
+                            : 'text-zinc-400 border-b-2 border-transparent hover:border-zinc-600'
                             }`}
                     >
                         開始遊戲
@@ -41,7 +41,7 @@ function Header(
                         onClick={() => setActiveTab('settings')}
                         className={`px-4 py-2 -mb-px font-medium ${activeTab === 'settings'
                             ? 'border-b-2 border-white'
-                            : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
+                            : 'text-zinc-400 border-b-2 border-transparent hover:border-zinc-600'
                             }`}
                     >
                         設定
@@ -50,7 +50,7 @@ function Header(
                         onClick={() => setActiveTab('changelog')}
                         className={`px-4 py-2 -mb-px font-medium ${activeTab === 'changelog'
                             ? 'border-b-2 border-white'
-                            : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
+                            : 'text-zinc-400 border-b-2 border-transparent hover:border-zinc-600'
                             }`}
                     >
                         更新日誌
