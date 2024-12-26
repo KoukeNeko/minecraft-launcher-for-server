@@ -26,8 +26,8 @@ function Header(
             </div>
 
             {/* 標籤頁 */}
-            <div className="px-6 mt-4">
-                <div className="flex space-x-8 border-b border-gray-700">
+            <div className="px-6 mt-4 border-b border-gray-700">
+                <div className="flex space-x-8 ">
                     <button
                         onClick={() => setActiveTab('play')}
                         className={`px-4 py-2 -mb-px font-medium ${activeTab === 'play'
