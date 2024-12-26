@@ -7,3 +7,39 @@
   cursor: default;
   overscroll-behavior: none; /* Disable pull-to-refresh and overscroll glow effect on Safai */
 }
+
+.button-loader {
+  overflow: hidden;
+  position: relative;
+}
+
+.button-loader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    60deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 20px
+  );
+  animation: load 1s infinite linear;
+}
+
+.button__text {
+  position: relative;
+}
+
+/* Loading button animation */
+@keyframes load {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
