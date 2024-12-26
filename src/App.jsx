@@ -9,7 +9,6 @@ import {
   Download,
   Users,
   RefreshCw,
-  Play,
   LogOut
 } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,6 +16,10 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+
+import PlayPage from './pages/PlayPage';
+import SettingPage from "./pages/SettingPage";
+import ChangeLogPage from "./pages/ChangeLogPage";
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('play');
@@ -39,18 +42,7 @@ const App = () => {
     setShowLoginModal(true);
   };
 
-  const slides = [
-    {
-      title: "歡迎來到我們的伺服器",
-      subtitle: "模組生存 - 版本 1.21.1",
-      image: "https://media.forgecdn.net/attachments/511/258/scr6.png"
-    },
-    {
-      title: "最新活動：聖誕節限時任務開跑！",
-      subtitle: "完成任務獲得特殊獎勵",
-      image: "https://staticg.sportskeeda.com/editor/2022/12/d13ee-16715248817983-1920.jpg"
-    }
-  ];
+  
 
   return (
     <div className="h-screen bg-gray-900 text-white relative">
@@ -165,213 +157,15 @@ const App = () => {
           {/* 內容區域 */}
           <div id="content" className="flex-1 overflow-y-auto p-6">
             {activeTab === 'play' && (
-              <div className="-mx-6 -mt-6 h-full">
-                <Swiper
-
-                  spaceBetween={0}
-                  centeredSlides={true}
-                  autoplay={{
-                    delay: 5000,
-                    disableOnInteraction: false,
-                  }}
-                  pagination={{
-                    clickable: true,
-                  }}
-                  loop={true}
-                  navigation={true}
-                  modules={[Autoplay, Pagination, Navigation]}
-                  className="h-[115%] w-full"
-                >
-                  {slides.map((slide, index) => (
-                    <SwiperSlide key={index}>
-                      <div
-                        className="relative w-full h-full bg-gray-800"
-                        style={{
-                          backgroundImage: `url(${slide.image})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center'
-                        }}
-                      >
-                        <div className="absolute bottom-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent">
-                          <div className="max-w-6xl mx-auto">
-                            <h2 className="text-4xl font-bold mb-2">{slide.title}</h2>
-                            <p className="text-xl text-gray-300">{slide.subtitle}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
+              <PlayPage />
             )}
 
             {activeTab === 'settings' && (
-              <div className="max-w-4xl mx-auto space-y-6">
-                {/* 遊戲目錄設定 */}
-                <div className="bg-gray-800 p-6 rounded-lg space-y-4">
-                  <h3 className="text-lg font-semibold flex items-center gap-2">
-                    遊戲目錄
-                  </h3>
-                  <div className="flex gap-2">
-                    <input
-                      type="text"
-                      value="C:\Users\Username\AppData\Roaming\.minecraft"
-                      className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
-                      readOnly
-                    />
-                    <button className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">
-                      瀏覽
-                    </button>
-                  </div>
-                  <p className="text-sm text-gray-400">遊戲檔案、模組和資源包將會儲存在此處</p>
-                </div>
-
-                {/* Java 設定 */}
-                <div className="bg-gray-800 p-6 rounded-lg space-y-4">
-                  <h3 className="text-lg font-semibold flex items-center gap-2">
-                    Java 設定
-                  </h3>
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-1">Java 路徑</label>
-                      <div className="flex gap-2">
-                        <input
-                          type="text"
-                          value="C:\Program Files\Java\jre1.8.0_301\bin\java.exe"
-                          className="flex-1 px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
-                          readOnly
-                        />
-                        <button className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">
-                          自動偵測
-                        </button>
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1">記憶體配置</label>
-                      <div className="grid grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm text-gray-400 mb-1">最小記憶體 (MB)</label>
-                          <input
-                            type="number"
-                            value="2048"
-                            className="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm text-gray-400 mb-1">最大記憶體 (MB)</label>
-                          <input
-                            type="number"
-                            value="4096"
-                            className="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* JVM 參數設定 */}
-                <div className="bg-gray-800 p-6 rounded-lg space-y-4">
-                  <h3 className="text-lg font-semibold flex items-center gap-2">
-                    啟動參數
-                  </h3>
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium mb-1">JVM 參數</label>
-                    <textarea
-                      value="-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions"
-                      className="w-full h-32 px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500 font-mono text-sm"
-                    />
-                    <p className="text-sm text-gray-400">進階使用者可以自訂 JVM 參數以優化遊戲效能</p>
-                  </div>
-                </div>
-
-                {/* 遊戲啟動設定 */}
-                <div className="bg-gray-800 p-6 rounded-lg space-y-4">
-                  <h3 className="text-lg font-semibold flex items-center gap-2">
-                    啟動選項
-                  </h3>
-                  <div className="space-y-4">
-                    <label className="flex items-center space-x-2">
-                      <input type="checkbox" className="w-4 h-4 bg-gray-900 border-gray-700 rounded" />
-                      <span>遊戲啟動後保持啟動器開啟</span>
-                    </label>
-                    <label className="flex items-center space-x-2">
-                      <input type="checkbox" className="w-4 h-4 bg-gray-900 border-gray-700 rounded" />
-                      <span>啟動時全螢幕顯示</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* 設定按鈕 */}
-                <div className="flex justify-end gap-4">
-                  <button className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">
-                    重設
-                  </button>
-                  <button className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded">
-                    儲存設定
-                  </button>
-                </div>
-              </div>
+              <SettingPage />
             )}
 
             {activeTab === 'changelog' && (
-              <div className="max-w-4xl mx-auto space-y-6">
-                {/* 最新版本更新 */}
-                <div className="bg-gray-800 p-6 rounded-lg space-y-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">版本 1.12.2-forge-14.23.5.2860</h3>
-                    <span className="text-sm text-gray-400">2024/01/15</span>
-                  </div>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="text-green-500 font-medium mb-2">新增功能</h4>
-                      <ul className="list-disc list-inside text-sm space-y-1 text-gray-300">
-                        <li>新增自動更新系統</li>
-                        <li>優化模組載入速度</li>
-                        <li>新增記憶體使用監控</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="text-blue-500 font-medium mb-2">優化改進</h4>
-                      <ul className="list-disc list-inside text-sm space-y-1 text-gray-300">
-                        <li>改善遊戲啟動速度</li>
-                        <li>優化記憶體使用效率</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="text-red-500 font-medium mb-2">錯誤修復</h4>
-                      <ul className="list-disc list-inside text-sm space-y-1 text-gray-300">
-                        <li>修復某些模組無法正常載入的問題</li>
-                        <li>修復啟動器偶爾無回應的問題</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 歷史版本更新 */}
-                <div className="bg-gray-800 p-6 rounded-lg space-y-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">版本 1.12.2-forge-14.23.5.2859</h3>
-                    <span className="text-sm text-gray-400">2024/01/01</span>
-                  </div>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="text-green-500 font-medium mb-2">新增功能</h4>
-                      <ul className="list-disc list-inside text-sm space-y-1 text-gray-300">
-                        <li>加入新的模組包管理系統</li>
-                        <li>新增自動備份功能</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="text-red-500 font-medium mb-2">錯誤修復</h4>
-                      <ul className="list-disc list-inside text-sm space-y-1 text-gray-300">
-                        <li>修復記憶體配置無法保存的問題</li>
-                        <li>修復部分介面顯示異常的問題</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ChangeLogPage />
             )}
           </div>
 
@@ -382,7 +176,7 @@ const App = () => {
                 {updating ?
                   <RefreshCw className="w-5 h-5 text-green-500 animate-spin" />
                   :
-                  <Play className="w-5 h-5 text-green-500" />
+                  <PlayPage className="w-5 h-5 text-green-500" />
                 }
 
                 <div className="text-sm">
