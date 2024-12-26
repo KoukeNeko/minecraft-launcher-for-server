@@ -59,7 +59,10 @@ const App = () => {
           {/* 頂部區域 */}
           <Header activeTab={activeTab} setActiveTab={setActiveTab} />
           {/* 內容區域 */}
-          <div id="content" className="flex-1 overflow-y-auto p-6" style={{ backgroundImage: `url(${bg_minecraft_dirt})`, backgroundRepeat: 'repeat', backgroundSize: '100px 100px' }}>
+          <div
+            id="content"
+            className="flex-1 overflow-y-auto p-6 bg-[#333333]"
+          >
             {(() => {
               switch (activeTab) {
                 case 'play':
