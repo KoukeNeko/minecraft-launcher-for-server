@@ -19,7 +19,7 @@ import 'swiper/css/navigation';
 
 const MinecraftLauncher = () => {
   const [activeTab, setActiveTab] = useState('play');
-  const [updating, setUpdating] = useState(false);
+  const [updating, setUpdating] = useState(true);
   const [username, setUsername] = useState('');
   const [showLoginModal, setShowLoginModal] = useState(false);
 
@@ -41,7 +41,7 @@ const MinecraftLauncher = () => {
   const slides = [
     {
       title: "歡迎來到我們的伺服器",
-      subtitle: "模組生存 - 版本 1.12.2",
+      subtitle: "模組生存 - 版本 1.21.1",
       image: "https://media.forgecdn.net/attachments/511/258/scr6.png"
     },
     {
@@ -118,9 +118,14 @@ const MinecraftLauncher = () => {
         <div className="flex-1 flex flex-col h-screen overflow-hidden">
           {/* 頂部區域 */}
           <div id="header" className="bg-[#1E1E1E]">
-            <h1 className="px-6 pt-4 text-2xl font-bold tracking-wide">
-              MINECRAFT: JAVA EDITION
-            </h1>
+            <div className="flex items-center gap-4">
+              <h1 className="pl-6 pt-4 text-2xl font-bold tracking-wide">
+                MINECRAFT: JAVA EDITION
+              </h1>
+              <p className="pt-4 text-sm text-gray-400 opacity-20">
+                FOR DOESHING'S SERVER
+              </p>
+            </div>
 
             {/* 標籤頁 */}
             <div className="px-6 mt-4">
@@ -128,8 +133,8 @@ const MinecraftLauncher = () => {
                 <button
                   onClick={() => setActiveTab('play')}
                   className={`px-4 py-2 -mb-px font-medium ${activeTab === 'play'
-                      ? 'border-b-2 border-white'
-                      : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
+                    ? 'border-b-2 border-white'
+                    : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
                     }`}
                 >
                   開始遊戲
@@ -137,8 +142,8 @@ const MinecraftLauncher = () => {
                 <button
                   onClick={() => setActiveTab('settings')}
                   className={`px-4 py-2 -mb-px font-medium ${activeTab === 'settings'
-                      ? 'border-b-2 border-white'
-                      : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
+                    ? 'border-b-2 border-white'
+                    : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
                     }`}
                 >
                   設定
@@ -146,8 +151,8 @@ const MinecraftLauncher = () => {
                 <button
                   onClick={() => setActiveTab('changelog')}
                   className={`px-4 py-2 -mb-px font-medium ${activeTab === 'changelog'
-                      ? 'border-b-2 border-white'
-                      : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
+                    ? 'border-b-2 border-white'
+                    : 'text-gray-400 border-b-2 border-transparent hover:border-gray-600'
                     }`}
                 >
                   更新日誌
@@ -161,7 +166,7 @@ const MinecraftLauncher = () => {
             {activeTab === 'play' && (
               <div className="-mx-6 -mt-6 h-full">
                 <Swiper
-                  
+
                   spaceBetween={0}
                   centeredSlides={true}
                   autoplay={{
@@ -373,30 +378,30 @@ const MinecraftLauncher = () => {
           <div id="footer" className="mt-auto p-4 bg-[#1E1E1E] border-t border-gray-700">
             <div className="flex items-center justify-between max-w-6xl mx-auto">
               <div className="flex items-center space-x-2">
-                {updating ? 
-                <RefreshCw className="w-5 h-5 text-green-500 animate-spin" /> 
-                :
-                <Play className="w-5 h-5 text-green-500" />
+                {updating ?
+                  <RefreshCw className="w-5 h-5 text-green-500 animate-spin" />
+                  :
+                  <Play className="w-5 h-5 text-green-500" />
                 }
 
                 <div className="text-sm">
                   <span className="text-gray-400">目前版本：</span>
-                  <span className="text-white">Forge 1.12.2</span>
+                  <span className="text-white">Fabric-1.21.1</span>
                   <span className="text-gray-400 ml-2">- 檢查更新中...</span>
                 </div>
               </div>
-              {updating 
-              ? 
-              <button
-              className="px-12 py-3 bg-green-700 rounded text-white font-medium button-loader relative cursor-default">
-                <span className="button__text relative z-10">請稍候...</span>
-              </button>
-              :
-              <button 
-              className="px-12 py-3 bg-green-600 hover:bg-green-700 rounded text-white font-medium">
-                開始遊戲
-              </button>
-            }
+              {updating
+                ?
+                <button
+                  className="px-12 py-3 bg-green-700 rounded text-white font-medium button-loader relative cursor-default">
+                  <span className="button__text relative z-10">請稍候...</span>
+                </button>
+                :
+                <button
+                  className="px-12 py-3 bg-green-600 hover:bg-green-700 rounded text-white font-medium">
+                  開始遊戲
+                </button>
+              }
             </div>
           </div>
         </div>
