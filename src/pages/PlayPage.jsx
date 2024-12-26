@@ -42,7 +42,7 @@ function PlayPage() {
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
                         <div
-                            className="relative w-full h-full bg-gray-800"
+                            className="relative w-full h-full bg-zinc-800"
                             style={{
                                 backgroundImage: `url(${slide.image})`,
                                 backgroundSize: 'cover',
@@ -52,7 +52,7 @@ function PlayPage() {
                             <div className="absolute bottom-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent">
                                 <div className="max-w-6xl mx-auto">
                                     <h2 className="text-4xl font-bold mb-2">{slide.title}</h2>
-                                    <p className="text-xl text-gray-300">{slide.subtitle}</p>
+                                    <p className="text-xl text-zinc-300">{slide.subtitle}</p>
                                 </div>
                             </div>
                         </div>
