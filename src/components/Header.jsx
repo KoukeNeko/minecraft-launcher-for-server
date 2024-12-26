@@ -20,7 +20,7 @@ function Header(
     return (
         <div id="header" className="bg-[#1E1E1E]">
             <div className="flex items-center gap-4">
-                <h1 className="pl-6 pt-4 text-2xl font-bold tracking-wide">
+                <h1 className="pl-6 pt-6 text-2xl font-bold tracking-wide">
                     MINECRAFT: 馬扁 Neko 私服器啟動器
                 </h1>
             </div>
