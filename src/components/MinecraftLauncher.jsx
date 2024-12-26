@@ -11,6 +11,11 @@ import {
   Play,
   LogOut
 } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const MinecraftLauncher = () => {
   const [activeTab, setActiveTab] = useState('play');
@@ -31,6 +36,19 @@ const MinecraftLauncher = () => {
     setUsername('');
     setShowLoginModal(true);
   };
+
+  const slides = [
+    {
+      title: "歡迎來到我們的伺服器",
+      subtitle: "模組生存 - 版本 1.12.2",
+      image: "url_to_image_1"
+    },
+    {
+      title: "最新活動：聖誕節限時任務開跑！",
+      subtitle: "完成任務獲得特殊獎勵",
+      image: "url_to_image_2"
+    }
+  ];
 
   return (
     <div className="h-screen bg-gray-900 text-white relative">
@@ -143,20 +161,41 @@ const MinecraftLauncher = () => {
           {/* 內容區域 */}
           <div className="flex-1 overflow-y-auto p-6">
             {activeTab === 'play' && (
-              <div className="space-y-4">
-                <div className="relative w-full h-64 bg-gray-800 rounded-lg overflow-hidden">
-                  <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
-                    <h2 className="text-2xl font-bold">歡迎來到我們的伺服器</h2>
-                    <p className="text-gray-300">模組生存 - 版本 1.12.2</p>
-                  </div>
-                </div>
-
-                <div className="relative w-full h-48 bg-gray-800 rounded-lg overflow-hidden">
-                  <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3 className="text-xl font-bold">最新活動：聖誕節限時任務開跑！</h3>
-                    <p className="text-gray-300">完成任務獲得特殊獎勵</p>
-                  </div>
-                </div>
+              <div className="-mx-6 -mt-6 h-full">
+                <Swiper
+                  spaceBetween={0}
+                  centeredSlides={true}
+                  autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                  }}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  navigation={true}
+                  modules={[Autoplay, Pagination, Navigation]}
+                  className="h-full"
+                >
+                  {slides.map((slide, index) => (
+                    <SwiperSlide key={index}>
+                      <div 
+                        className="relative w-full h-full bg-gray-800"
+                        style={{
+                          backgroundImage: `url(${slide.image})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }}
+                      >
+                        <div className="absolute bottom-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent">
+                          <div className="max-w-6xl mx-auto">
+                            <h2 className="text-4xl font-bold mb-2">{slide.title}</h2>
+                            <p className="text-xl text-gray-300">{slide.subtitle}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             )}
 
