@@ -7,11 +7,8 @@ function Header(
     <div id="header" className="bg-[#1E1E1E]">
             <div className="flex items-center gap-4">
               <h1 className="pl-6 pt-4 text-2xl font-bold tracking-wide">
-                MINECRAFT: JAVA EDITION
+                MINECRAFT: 馬扁 Neko 私服器啟動器
               </h1>
-              <p className="pt-4 text-sm text-gray-400 opacity-20">
-                FOR DOESHING'S SERVER
-              </p>
             </div>
 
             {/* 標籤頁 */}
