@@ -1,4 +1,5 @@
 import React from 'react'
+import { Book, Download, Globe, LogOut, Map, MessageSquare, Settings } from 'lucide-react'
 
 function SideBar(
     { username, handleLogout }

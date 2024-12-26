@@ -1,5 +1,5 @@
 import React from 'react'
-import { PlayPage, RefreshCw } from 'lucide-react'
+import { RefreshCw } from 'lucide-react'
 
 function Footer(
     { updating }

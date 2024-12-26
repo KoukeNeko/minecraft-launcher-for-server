@@ -1,19 +1,6 @@
 import "./App.css";
-import bg_minecraft_dirt from "./assets/bg-minecraft-dirt.jpeg";
 import React, { useState } from 'react';
-import {
-  Settings,
-  Book,
-  Globe,
-  Map,
-  MessageSquare,
-  Download,
-  Users,
-  RefreshCw,
-  LogOut
-} from 'lucide-react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -21,6 +8,7 @@ import 'swiper/css/navigation';
 import PlayPage from './pages/PlayPage';
 import SettingPage from "./pages/SettingPage";
 import ChangeLogPage from "./pages/ChangeLogPage";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SideBar from "./components/SideBar";
