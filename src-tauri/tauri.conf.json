@@ -17,7 +17,7 @@
         "height": 600,
         "decorations": true,
         "transparent": false,
-        "resizable": true,
+        "resizable": false,
         "fullscreen": false,
         "titleBarStyle": "Overlay",
         "hiddenTitle": true
