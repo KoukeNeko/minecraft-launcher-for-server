@@ -21,7 +21,7 @@ function Header(
         <div id="header" className="bg-[#1E1E1E]">
             <div className="flex items-center gap-4">
                 <h1 className="pl-6 pt-6 text-2xl font-bold tracking-wide">
-                    MINECRAFT: 馬扁 Neko 私服器啟動器
+                    MINECRAFT: JAVA EDITION
                 </h1>
             </div>
 

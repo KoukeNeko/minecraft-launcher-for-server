@@ -25,7 +25,7 @@ function SettingPage() {
     };
 
     return (
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto space-y-6 p-6">
             {/* 遊戲目錄設定 */}
             <div className="bg-zinc-800 p-6 rounded-lg space-y-4">
                 <h3 className="text-lg font-semibold flex items-center gap-2">

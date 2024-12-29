@@ -22,7 +22,7 @@ function PlayPage() {
     ];
 
     return (
-        <div className="-mx-6 -mt-6 h-full">
+        <div className="h-full overflow-hidden">
             <Swiper
 
                 spaceBetween={0}
@@ -37,7 +37,7 @@ function PlayPage() {
                 loop={true}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
-                className="h-[115%] w-full"
+                className="h-[100%] w-full"
             >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>

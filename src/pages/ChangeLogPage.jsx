@@ -2,7 +2,7 @@ import React from 'react'
 
 function ChangeLogPage() {
     return (
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto space-y-6 p-6">
             {/* 最新版本更新 */}
             <div className="bg-zinc-800 p-6 rounded-lg space-y-4">
                 <div className="flex items-center justify-between">
