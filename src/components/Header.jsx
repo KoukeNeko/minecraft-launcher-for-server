@@ -8,12 +8,18 @@ function Header(
 
     React.useEffect(() => {
         const appWindow = getCurrentWindow();
+        const headerElement = document.getElementById('header');
 
-        document.getElementById('header')?.addEventListener('mousedown', (e) => {
-            appWindow.startDragging();
-        });
+        const handleMouseDown = (e) => {
+            // 檢查點選的元素是否為按鈕或按鈕的子元素
+            if (!e.target.closest('button')) {
+                appWindow.startDragging();
+            }
+        };
+
+        headerElement?.addEventListener('mousedown', handleMouseDown);
         return () => {
-            document.getElementById('header')?.removeEventListener('mousedown', () => { });
+            headerElement?.removeEventListener('mousedown', handleMouseDown);
         };
     }, []);
 
